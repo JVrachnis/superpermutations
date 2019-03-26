@@ -1,4 +1,3 @@
-
 from itertools import permutations
 import string
 import time
@@ -28,31 +27,26 @@ if len(argv)>1:
 #chars is the set to be permutated
 chars=digs[:n]
 
-#pms is all the permutations of the chars set
-pms = list(permutations(chars))
-
 #lspm keeps track the last n digits of the super permutation
 #aka the last permutation
-lspm=pms[0]
-
-#pms is now the permutations that the super permutation hasnt used yet
-#i made it a type set so it will be faster to search on
-
-pms=set(pms[1:])
+lspm=chars
 
 #t is to keep track of time
 t=time.time()
 
 #the superpermutation will be build into the file to save space
 file = open('spm'+str(n)+'l?.txt', 'w')
+
+file.write(''.join(lspm))
 #this is the main loop
 #it is unsafe to assume all the permutations will be on the super permutation
+
 for j in range(0,math.factorial(n)):
 
-    r=n-get_rotetion(j,n)
+    r=get_rotetion(j,n)
     # a turn is taking the first r digits reversing them
     # and puting it to the back , creating a new temp permutation
-    head=lspm[:r]
+    head=lspm[:r][::-1]
     tpm=lspm[r:]+head
 
     #is is assuming that the tpm hasnt been used yet
