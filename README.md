@@ -22,3 +22,8 @@ spm.cpp is basicly the algorithm used on sp3.py but in c++ it is 5 times faster
 compiling exaple: cpp spm.cpp -o spm.bin
 
 try running './spm.bin n'
+
+added checking for superpermutations, it can check any superpermutation but it takes time for large ones
+it will check all lines , each line as a superpermutation , of a file
+
+try running './spm.bin file n' file contains a superpermutation per line and n is the size of the set 
